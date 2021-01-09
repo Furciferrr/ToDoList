@@ -1,7 +1,34 @@
-.task img {
-    width:30px;
+.taskWrap {
+    display: flex;
+    justify-content: space-between;
 }
 
-.task {
-    border:solid green 2px;
+.message {
+    margin-left: 30px;
+    padding-top: 5px;
 }
+
+
+.imgWrap img {
+    width: 32px;
+    cursor: pointer;
+}
+
+.imgWrap {
+    background: inherit;
+    box-sizing: border-box;
+    max-height: 32px;
+}
+
+.imgWrap :hover {
+    background: #f44336;
+}
+
+
+.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+    
+}
+

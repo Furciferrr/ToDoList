@@ -1,0 +1,33 @@
+.inputWrapper {
+    background-color: #f44336;
+    padding: 10px;
+
+}
+
+.inputWrapper h3 {
+    color: white;
+    margin: 5px;
+}
+
+.mainWrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.taskWrapper > div:nth-child(2n) {
+    background: #f9f9f9;
+}
+
+.taskWrapper > div{
+    background: #eee;
+    cursor: pointer;
+}
+
+.taskWrapper div:hover  {
+    background: #ddd;
+    
+}
+
+
+
+

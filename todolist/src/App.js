@@ -1,13 +1,11 @@
 import './App.css';
 import ToDo from './components/todolist';
-import state from './components/store'
-
+import store from './components/store'
 
 function App() {
-
   return (
     <div className="App">
-      <ToDo tasks={state.tasks} />
+      <ToDo tasks={store.getState().tasks} addTask={store.addTask.bind(store)} removeTask={store.removeTask.bind(store)}/>
     </div>
   );
 }
