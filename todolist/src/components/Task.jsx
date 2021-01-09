@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
 import classes from './task.module.css'
 import cross from './../img/closeCross.svg'
+import { checkedAC, removeTaskAC } from './task-reducer'
 
 
 const Task = (props) => {
     const removeItem = (e) => {
         const id = e.currentTarget.attributes.id.value
-        props.removeTask(+id)
+        props.removeTask(removeTaskAC(+id))
     }
 
-    const [check, onChecked] = useState(false)
-    const onCheck = () => {
-        check ? onChecked(false) : onChecked(true)
+    const onCheck = (e) => {
+        const id = e.currentTarget.attributes.id.value
+        props.removeTask(checkedAC(+id))
     }
 
     return (
-        <div className={classes.taskWrap}>
-            <div onClick={onCheck} className={classes.message}>{props.message}</div>
+        <div className={`${classes.taskWrap} ${props.checked && classes.checked}`} 
+        id={props.id} onClick={(e) => {onCheck(e)}}>
+            <div  className={classes.message}>{props.message}</div>
             <div className={classes.imgWrap}>
                 <img onClick={ (e) => {
                     removeItem (e)

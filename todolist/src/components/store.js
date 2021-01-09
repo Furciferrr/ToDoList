@@ -1,16 +1,23 @@
-
+import taskReducer from './task-reducer'
 
 const store = {
     _state: {
         tasks: [
-            {id: 17856868, message: 'add task'},
+            {id: 17856868, message: 'add task', checked: false},
           ]
     },
 
+
+    dispatch (action) {
+        this._state.tasks = taskReducer (this._state.tasks, action)
+        this._reranderEntireTree(this._state)
+    },
+    
     addTask (newTask) {
         let taskItem = {
             id:Math.random(),
-            message: newTask
+            message: newTask,
+            checked: false
         }
         this._state.tasks.push(taskItem)
         this._reranderEntireTree()

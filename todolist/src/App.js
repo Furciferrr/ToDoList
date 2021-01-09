@@ -2,10 +2,12 @@ import './App.css';
 import ToDo from './components/todolist';
 import store from './components/store'
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <ToDo tasks={store.getState().tasks} addTask={store.addTask.bind(store)} removeTask={store.removeTask.bind(store)}/>
+      <ToDo tasks={props.state.tasks} 
+            addTask={store.dispatch.bind(store)} 
+            removeTask={store.dispatch.bind(store)}/>
     </div>
   );
 }

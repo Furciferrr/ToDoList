@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Task from './Task'
+import { addTaskAC } from './task-reducer'
 import classes from './todolist.module.css'
 
 const ToDo = (props) => {
@@ -11,7 +12,7 @@ const ToDo = (props) => {
     }
 
     const saveTask = () => {
-        props.addTask(task)
+        props.addTask(addTaskAC(task))
         chengeTask('')
     }
 
@@ -28,6 +29,7 @@ const ToDo = (props) => {
             {props.tasks
                 .map(task => <Task key={task.id} id={task.id}
                     message={task.message}
+                    checked={task.checked}
                     removeTask={props.removeTask} />
                 )}
             </div>    

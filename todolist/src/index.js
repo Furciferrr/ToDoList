@@ -8,16 +8,16 @@ import store from './components/store';
 
 
 
-const reranderEntireTree = () => {
+const reranderEntireTree = (state) => {
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App state={state}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
 }
 
-reranderEntireTree ();
+reranderEntireTree (store.getState());
 store.subscribe(reranderEntireTree)
 
 // If you want to start measuring performance in your app, pass a function
