@@ -1,23 +1,39 @@
 .taskWrap {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .message {
-    margin-left: 30px;
-    padding-top: 5px;
+    margin-left: 5px;
+    padding-top: 12px;
+    
+}
+
+.taskWrap > div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.check {
+     margin: 13px;
+     min-width: 12px;
+     color: initial;
+     
+     
 }
 
 
 .imgWrap img {
-    width: 32px;
+    width: 48px;
     cursor: pointer;
 }
 
 .imgWrap {
     background: inherit;
     box-sizing: border-box;
-    max-height: 32px;
+    max-height: 48px;
+    
 }
 
 .imgWrap :hover {
@@ -27,8 +43,31 @@
 
 .checked {
     background: #888;
-    color: #fff;
-    text-decoration: line-through;
+    color: rgba(31, 30, 28, 0.137);
+
     
 }
+
+.trough {
+    text-decoration: line-through;
+}
+
+
+.check span:after {
+    content: '\2713';
+  }
+
+  .edit {
+    position: absolute;
+    right: 70px;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+    cursor: pointer;
+  }
+
+  .edit :hover {
+      text-decoration: underline;
+      color:white;
+      font-weight: bold;
+  }
 

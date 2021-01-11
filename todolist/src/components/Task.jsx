@@ -1,27 +1,26 @@
 import classes from './task.module.css'
 import cross from './../img/closeCross.svg'
-import { checkedAC, removeTaskAC } from './task-reducer'
 
 
 const Task = (props) => {
-    const removeItem = (e) => {
-        const id = e.currentTarget.attributes.id.value
-        props.removeTask(removeTaskAC(+id))
-    }
-
-    const onCheck = (e) => {
-        const id = e.currentTarget.attributes.id.value
-        props.removeTask(checkedAC(+id))
-    }
 
     return (
-        <div className={`${classes.taskWrap} ${props.checked && classes.checked}`} 
-        id={props.id} onClick={(e) => {onCheck(e)}}>
-            <div  className={classes.message}>{props.message}</div>
+        <div className={`${classes.taskWrap} ${props.checked && classes.checked}`}
+            id={props.id} onClick={(e) => 
+            { e.target.className !== classes.edit &&
+                props.onCheck(e) }}>
+            <div>
+                <span className={classes.check}>{props.checked && <span></span>}</span>
+                <div className={`${classes.message} ${props.checked && classes.trough}`}>
+                    {props.message}</div>
+                <span onClick={() => {
+                    console.log('edit task')
+                }} className={classes.edit}><span>Edit</span></span>    
+            </div>
             <div className={classes.imgWrap}>
-                <img onClick={ (e) => {
-                    removeItem (e)
-                } } src={cross} id={props.id} alt='close'/> 
+                <img onClick={(e) => {
+                    props.removeTask(e)
+                }} src={cross} id={props.id} alt='close' />
             </div>
         </div>
     )

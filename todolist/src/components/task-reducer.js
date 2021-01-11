@@ -1,8 +1,18 @@
 const ADD_TASK = 'ADD_TASK'
 const REMOVE_TASK = 'REMOVE_TASK'
 const CHECKED = 'CHECKED'
+const CHECKED_TASK = 'CHECKED_TASK'
 
-const taskReducer = (state, action) => {
+let initialState = {
+
+   tasks: [ {id: 17856868, message: 'add task', checked: false } ],
+   showOnlychecked: false
+}
+
+
+
+
+const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
             let taskItem = {
@@ -10,24 +20,42 @@ const taskReducer = (state, action) => {
                 message: action.newTask,
                 checked: false
             }
-            state.push(taskItem)
-            return state
+            return {
+                ...state,
+                tasks: [...state.tasks, taskItem]
+            }
+            /* stateCopy.tasks.push(taskItem)
+            return stateCopy */
             case REMOVE_TASK:
-                state = state.filter(item => item.id !== action.id)
-                return state
+                return {
+                    ...state,
+                    tasks: state.tasks.filter(item => item.id !== action.id)
+                }
             case CHECKED:
-                 state = state.map(task => {
-                    if(task.id === action.id) {
-                        if(task.checked) {
-                            task.checked = false
-                        } else {
-                            task.checked = true
+                return {
+                    ...state,
+                    tasks: state.tasks.map(task => {
+                        if(task.id === action.id) {
+                            if(task.checked) {
+                                return {
+                                    ...task,
+                                    checked: false
+                                }
+                            } else {
+                                return {
+                                    ...task,
+                                    checked: true
+                                }
+                            }
                         }
-                        
-                 }
-                 return task
-                })
-                 return state    
+                        return task
+                    })
+                }
+            case CHECKED_TASK:
+                return {
+                    ...state,
+                    showOnlychecked: state.showOnlychecked ? false : true
+                    }       
             default:
                 return state;
     }
@@ -54,5 +82,10 @@ export const checkedAC = (id) => {
     }
 }
 
+export const checkedTaskAC = () => {
+    return {
+        type: CHECKED_TASK
+    }
+}
 
 export default taskReducer
