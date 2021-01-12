@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/ToDoList/static/css/main.d91eebd9.chunk.css",
+    "main.js": "/ToDoList/static/js/main.0a353e52.chunk.js",
+    "main.js.map": "/ToDoList/static/js/main.0a353e52.chunk.js.map",
+    "runtime-main.js": "/ToDoList/static/js/runtime-main.8bfa0396.js",
+    "runtime-main.js.map": "/ToDoList/static/js/runtime-main.8bfa0396.js.map",
+    "static/js/2.33eff303.chunk.js": "/ToDoList/static/js/2.33eff303.chunk.js",
+    "static/js/2.33eff303.chunk.js.map": "/ToDoList/static/js/2.33eff303.chunk.js.map",
+    "static/js/3.b54399cb.chunk.js": "/ToDoList/static/js/3.b54399cb.chunk.js",
+    "static/js/3.b54399cb.chunk.js.map": "/ToDoList/static/js/3.b54399cb.chunk.js.map",
+    "index.html": "/ToDoList/index.html",
+    "static/css/main.d91eebd9.chunk.css.map": "/ToDoList/static/css/main.d91eebd9.chunk.css.map",
+    "static/js/2.33eff303.chunk.js.LICENSE.txt": "/ToDoList/static/js/2.33eff303.chunk.js.LICENSE.txt",
+    "static/media/closeCross.386c62bb.svg": "/ToDoList/static/media/closeCross.386c62bb.svg",
+    "static/media/pencil.bc0f063e.svg": "/ToDoList/static/media/pencil.bc0f063e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8bfa0396.js",
+    "static/js/2.33eff303.chunk.js",
+    "static/css/main.d91eebd9.chunk.css",
+    "static/js/main.0a353e52.chunk.js"
+  ]
+}
