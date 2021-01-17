@@ -13,15 +13,15 @@ const ToDo = (props) => {
 
     const onEditMode = (e) => {
         let id = +e.currentTarget.attributes.id.value
-        props.setEditTaskId(id)
+        props.setEditTaskIdAC(id)
         let editTask = props.tasks.filter(task => task.id === id)
         chengeTask(editTask[0].message)
-        props.chengeEditMode ()
+        props.editModeAC ()
     }
 
     const saveChenges = () => {
-        props.chengeEditMode ()
-        props.setChenges(task)
+        props.editModeAC ()
+        props.setChengesAC(task)
         chengeTask('')
     }
 
@@ -29,8 +29,8 @@ const ToDo = (props) => {
         return <Task key={task.id} id={task.id}
         message={task.message}
         checked={task.checked}
-        removeTask={props.removeTask} 
-        complet={props.complet}
+        removeTask={props.removeTaskAC} 
+        complet={props.completAC}
         editMode={props.editMode}
         onEditMode={onEditMode}/>
     }
@@ -56,7 +56,7 @@ const ToDo = (props) => {
                 <input type='input' value={task} onChange={onChenge}  maxLength="30"
                 placeholder={props.tasks.length > 1 ? 'I want more tasks' : 'give me your tasks'}></input>
                 {!props.editMode ? <button onClick={()=> {
-                    props.saveTask(task)
+                    props.addTaskAC(task)
                     chengeTask('')
                 }}>Add</button> :
                 <button onClick={()=> {
@@ -74,8 +74,8 @@ const ToDo = (props) => {
             </div> 
 
             <div className={classes.footer}>
-            <button onClick={props.viewChecked} >{props.showOnlychecked ? 'Show all task' : 'Completed'}</button>  
-            <button onClick={props.viewActive} >{props.showOnlyActive ? 'Show all task' : 'Active'}</button>  
+            <button onClick={props.checkedTaskAC} >{props.showOnlychecked ? 'Show all task' : 'Completed'}</button>  
+            <button onClick={props.showOnlyActiveAC} >{props.showOnlyActive ? 'Show all task' : 'Active'}</button>  
 
             </div>
              

@@ -14,45 +14,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        saveTask: (task) => {
-            dispatch(addTaskAC(task))
-        },
 
-        removeTask: (e) => {
-            const id = e.currentTarget.attributes.id.value
-            dispatch(removeTaskAC(+id))
-        },
-
-        complet: (e) => {
-            const id = e.currentTarget.attributes.id.value
-            dispatch(completAC(+id))
-        },
-
-        viewChecked: () => {
-            dispatch(checkedTaskAC())
-        },
-
-        viewActive: () => {
-            dispatch(showOnlyActiveAC())
-        },
-
-        chengeEditMode: () => {
-            dispatch(editModeAC())
-        },
-
-        setChenges: (id, message) => {
-            dispatch(setChengesAC(id, message))
-        },
-
-        setEditTaskId: (id) => {
-            dispatch (setEditTaskIdAC(id))
-        }
-
-    }
-}
-
-const TodolistContainer = connect(mapStateToProps, mapDispatchToProps)(ToDo)
+const TodolistContainer = connect(mapStateToProps, { addTaskAC, checkedTaskAC, removeTaskAC, editModeAC, 
+    setChengesAC, setEditTaskIdAC, completAC, showOnlyActiveAC })(ToDo)
 
 export default TodolistContainer

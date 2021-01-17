@@ -9,7 +9,7 @@ const Task = (props) => {
         <div className={`${classes.taskWrap} ${props.checked && classes.checked}`}
             id={props.id} onClick={(e) => 
             { e.target.className !== classes.editTarget &&
-                props.complet(e) }}>
+                props.complet(+ e.currentTarget.attributes.id.value) }}>
             <div>
                 <span className={classes.check}>{props.checked && <span></span>}</span>
                 <div className={`${classes.message} ${props.checked && classes.trough}`}>
@@ -20,7 +20,7 @@ const Task = (props) => {
             </div>
             <div className={classes.imgWrap}>
                 <img onClick={(e) => {
-                    props.removeTask(e)
+                    props.removeTask(+ e.currentTarget.attributes.id.value)
                 }} src={cross} id={props.id} alt='close' />
             </div>
         </div>
